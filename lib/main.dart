@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return Provider(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'iDO English',
+        title: 'iDo English',
         initialRoute: 'login',
         routes: {
           'login' : ( BuildContext context ) => LoginPage(),
