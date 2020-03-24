@@ -17,31 +17,6 @@ class LoginPage extends StatelessWidget {
             BackgroundWidget(
               width: size.width,
               height: size.height,
-              child: Column(
-                children: <Widget>[],
-              ),
-            ),
-            Positioned(
-              child: BackButtonWidget(),
-              left: 20,
-              top: kToolbarHeight,
-            ),
-            Positioned(
-              child: Container(
-                child: Text('Log In', style: Theme.of(context).textTheme.title),
-              ),
-              left: 30,
-              top: kToolbarHeight + 90,
-            ),
-            Positioned(
-              child: Container(
-                child: Image.asset('assets/images/idologo.png'),
-              ),
-              right: 30,
-              top: kToolbarHeight + 50,
-            ),
-            Container(
-              height: double.infinity,
               child: SafeArea(
                 child: Column(
                   children: <Widget>[
@@ -63,6 +38,25 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            Positioned(
+              child: BackButtonWidget(),
+              left: 20,
+              top: kToolbarHeight,
+            ),
+            Positioned(
+              child: Container(
+                child: Text('Log In', style: Theme.of(context).textTheme.title),
+              ),
+              left: 30,
+              top: kToolbarHeight + 90,
+            ),
+            Positioned(
+              child: Container(
+                child: Image.asset('assets/images/idologo.png'),
+              ),
+              right: 30,
+              top: kToolbarHeight + 50,
             ),
           ],
         ),
