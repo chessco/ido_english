@@ -3,10 +3,9 @@ import 'package:ido_english/src/bloc/provider.dart';
 import 'package:ido_english/src/providers/usuario_provider.dart';
 import 'package:ido_english/src/utils/utils.dart';
 
-class LoginPage2 extends StatelessWidget {
+class RegistroPage extends StatelessWidget {
 
   final usuarioProvider = new UsuarioProvider();
-
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +52,7 @@ class LoginPage2 extends StatelessWidget {
             ),
             child: Column(
               children: <Widget>[
-                Text('Login', style: TextStyle(fontSize: 20.0)),
+                Text('Sign Up', style: TextStyle(fontSize: 20.0)),
                 SizedBox( height: 60.0 ),
                 _crearEmail( bloc ),
                 SizedBox( height: 30.0 ),
@@ -65,8 +64,8 @@ class LoginPage2 extends StatelessWidget {
           ),
 
           FlatButton(
-            child: Text('Create your account'),
-            onPressed: ()=> Navigator.pushReplacementNamed(context, 'registro'),
+            child: Text('¿Do you have account? Log in'),
+            onPressed: ()=> Navigator.pushReplacementNamed(context, 'login'),
           ),
           SizedBox( height: 100.0 )
         ],
@@ -90,7 +89,7 @@ class LoginPage2 extends StatelessWidget {
           decoration: InputDecoration(
             icon: Icon( Icons.alternate_email, color: Colors.deepPurple ),
             hintText: 'sample@email.com',
-            labelText: 'E mail',
+            labelText: 'Email',
             counterText: snapshot.data,
             errorText: snapshot.error
           ),
@@ -155,22 +154,25 @@ class LoginPage2 extends StatelessWidget {
           elevation: 0.0,
           color: Colors.deepPurple,
           textColor: Colors.white,
-          onPressed: snapshot.hasData ? ()=> _login(bloc, context) : null
+          onPressed: snapshot.hasData ? ()=> _register(bloc, context) : null
         );
       },
     );
   }
 
-  _login(LoginBloc bloc, BuildContext context) async {
+  _register(LoginBloc bloc, BuildContext context) async {
 
-    Map info = await usuarioProvider.login(bloc.email, bloc.password);
+    final info = await usuarioProvider.nuevoUsuario(bloc.email, bloc.password);
 
     if ( info['ok'] ) {
        Navigator.pushReplacementNamed(context, 'home');
     } else {
       mostrarAlerta( context, info['mensaje'] );
     }
-    
+
+
+    // Navigator.pushReplacementNamed(context, 'home');
+
   }
 
 
@@ -214,8 +216,8 @@ class LoginPage2 extends StatelessWidget {
           padding: EdgeInsets.only(top: 80.0),
           child: Column(
             children: <Widget>[
-              Image.asset('assets/images/idologo.png'),
               //Icon( Icons.person_pin_circle, color: Colors.white, size: 100.0 ),
+               Image.asset('assets/images/idologo.png'),
               SizedBox( height: 10.0, width: double.infinity ),
               Text('iDo English', style: TextStyle( color: Colors.white, fontSize: 25.0 ))
             ],
