@@ -20,10 +20,57 @@ class LoginPage extends StatelessWidget {
               child: SafeArea(
                 child: Column(
                   children: <Widget>[
+                    SizedBox(
+                      height: kToolbarHeight + 150,
+                    ),
                     Expanded(
                       child: SingleChildScrollView(
                         physics: AlwaysScrollableScrollPhysics(),
-                        child: Column(),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              TextFieldWidget(
+                                hintText: "Email",
+                                icon:
+                                    Image.asset('assets/images/emailicon.png'),
+                              ),
+                              SizedBox(height: 15),
+                              TextFieldWidget(
+                                hintText: "Password",
+                                obscureText: true,
+                                icon: Image.asset(
+                                    'assets/images/passwordicon.png'),
+                              ),
+                              SizedBox(height: 10),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 25),
+                                child: RichText(
+                                  textAlign: TextAlign.left,
+                                  text: TextSpan(
+                                      text: 'Forgot your password? ',
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        color:
+                                            Color.fromRGBO(235, 236, 236, 0.5),
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: 'Retrive',
+                                          style: TextStyle(
+                                            color: Color(0xFF605EF8),
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 13,
+                                          ),
+                                        ),
+                                      ]),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                     Spacer(),
