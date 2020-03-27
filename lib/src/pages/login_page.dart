@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     SizedBox(
-                      height: kToolbarHeight + 150,
+                      height: kToolbarHeight + 180,
                     ),
                     Expanded(
                       child: SingleChildScrollView(
@@ -52,7 +52,7 @@ class LoginPage extends StatelessWidget {
                                   text: TextSpan(
                                       text: 'Forgot your password? ',
                                       style: TextStyle(
-                                        fontSize: 13,
+                                        fontSize: 15,
                                         color:
                                             Color.fromRGBO(235, 236, 236, 0.5),
                                       ),
@@ -62,25 +62,64 @@ class LoginPage extends StatelessWidget {
                                           style: TextStyle(
                                             color: Color(0xFF605EF8),
                                             fontWeight: FontWeight.w500,
-                                            fontSize: 13,
+                                            fontSize: 15,
                                           ),
                                         ),
                                       ]),
                                 ),
                               ),
+                              SizedBox(height: 80),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ButtonWidget(
+                                      color: Color(0xFF17191C),
+                                      label: 'Login',
+                                    ),
+                                  ),
+                                  SizedBox(width: 15),
+                                  Expanded(
+                                    child: ButtonWidget(
+                                      color: Color(0xFFD81F5E),
+                                      label: 'Sign up',
+                                    ),
+                                  ),
+                                ],
+                              )
                             ],
                           ),
                         ),
                       ),
                     ),
-                    Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        FbButtonWidget(),
-                        TwitterButtonWidget(),
-                      ],
+                    Container(
+                      width: double.infinity,
+                      height: 20,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.only(right: 20),
+                      child: Text(
+                        'Or login with:',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          color: Color(0xFFEBECEC),
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Container(
+                      height: 40,
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          FbButtonWidget(),
+                          TwitterButtonWidget(),
+                        ],
+                      ),
                     ),
                   ],
                 ),
